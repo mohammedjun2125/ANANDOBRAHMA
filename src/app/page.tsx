@@ -24,7 +24,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
+        <section className="relative h-[70vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -37,7 +37,7 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 animate-fade-in-up space-y-4 p-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
               ANANDOBRAHMA
             </h1>
             <p className="text-lg md:text-xl text-primary max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ export default function Home() {
                       )}
                     </CardHeader>
                     <CardContent className="p-6">
-                      <CardTitle className="text-2xl font-headline mb-2">{dish.name}</CardTitle>
+                      <CardTitle className="text-xl md:text-2xl font-headline mb-2">{dish.name}</CardTitle>
                       <p className="text-muted-foreground">{dish.description}</p>
                     </CardContent>
                   </Card>
@@ -90,7 +90,7 @@ export default function Home() {
         <section className="py-16 lg:py-24 bg-secondary/20">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="order-2 md:order-1">
+                    <div className="order-2 md:order-1 text-center md:text-left">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">The Soul of Anandobrahma</h2>
                         <p className="text-muted-foreground mb-6 leading-relaxed">
                             Anandobrahma is more than a restaurant; it's a celebration of heritage, flavor, and the joy of dining. Our philosophy is rooted in the ancient Indian concept of "food as the divine," where every meal is an offering of love and a path to contentment. We blend traditional recipes with contemporary techniques to create an unforgettable fine-dining experience.
@@ -162,11 +162,11 @@ export default function Home() {
                     (img) => img.id === testimonial.imageId
                   );
                   return (
-                    <CarouselItem key={index}>
+                    <CarouselItem key={index} className="md:basis-1/2">
                       <div className="p-1">
                         <Card className="bg-background/50 border-border/50">
-                          <CardContent className="flex flex-col items-center justify-center p-8 text-center">
-                            <p className="text-lg italic mb-6">
+                          <CardContent className="flex flex-col items-center justify-center p-6 md:p-8 text-center min-h-[280px]">
+                            <p className="text-base md:text-lg italic mb-6">
                               "{testimonial.quote}"
                             </p>
                             <div className="flex items-center">
