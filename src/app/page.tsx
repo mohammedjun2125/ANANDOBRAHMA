@@ -24,7 +24,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[70vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
+        <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -37,13 +37,13 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 animate-fade-in-up space-y-4 p-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-2xl">
               ANANDOBRAHMA
             </h1>
-            <p className="text-lg md:text-xl text-primary max-w-2xl mx-auto">
+            <p className="text-md sm:text-lg md:text-xl text-primary max-w-2xl mx-auto">
               Where Culinary Art Meets Timeless Elegance
             </p>
-            <Button asChild size="lg" className="mt-6 font-bold">
+            <Button asChild size="lg" className="mt-6 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
               <Link href="/reservations">Reserve a Table</Link>
             </Button>
           </div>
@@ -61,7 +61,7 @@ export default function Home() {
                   (img) => img.id === dish.imageId
                 );
                 return (
-                  <Card key={dish.name} className="overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                  <Card key={dish.name} className="overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 group bg-secondary/20">
                     <CardHeader className="p-0">
                       {dishImage && (
                         <div className="aspect-video relative overflow-hidden">
@@ -87,7 +87,7 @@ export default function Home() {
         </section>
 
         {/* About Us Summary */}
-        <section className="py-16 lg:py-24 bg-secondary/20">
+        <section className="py-16 lg:py-24 bg-secondary/30">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="order-2 md:order-1 text-center md:text-left">
@@ -144,7 +144,7 @@ export default function Home() {
 
 
         {/* Testimonials */}
-        <section className="py-16 lg:py-24 bg-secondary/20">
+        <section className="py-16 lg:py-24 bg-secondary/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               Words From Our Guests
