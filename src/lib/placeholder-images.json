@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Elegant fine dining restaurant interior with warm lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1538333581680-29dd4752ddf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzYxOTYwMjg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant interior"
+    },
+    {
+      "id": "dish-1",
+      "description": "Gourmet dish beautifully plated.",
+      "imageUrl": "https://images.unsplash.com/photo-1616671285410-2a676a9a433d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnb3VybWV0JTIwZm9vZHxlbnwwfHx8fDE3NjE5NDU0Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gourmet food"
+    },
+    {
+      "id": "dish-2",
+      "description": "Artfully prepared main course.",
+      "imageUrl": "https://images.unsplash.com/photo-1586032340364-03f75289e661?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGxhdGVkJTIwZGlzaHxlbnwwfHx8fDE3NjIwMjY1MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "plated dish"
+    },
+    {
+      "id": "dish-3",
+      "description": "Exquisite dessert with intricate details.",
+      "imageUrl": "https://images.unsplash.com/photo-1599458252573-56ae36120de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaW5lJTIwZGVzc2VydHxlbnwwfHx8fDE3NjIwMjY1MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fine dessert"
+    },
+    {
+      "id": "ambience-1",
+      "description": "A cozy corner of the restaurant with sophisticated decor.",
+      "imageUrl": "https://images.unsplash.com/photo-1652235192095-c252577b938a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyZXN0YXVyYW50JTIwZGVjb3J8ZW58MHx8fHwxNzYxOTQyMzYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant decor"
+    },
+    {
+      "id": "ambience-2",
+      "description": "The restaurant's bar area with elegant lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1675570190077-31af74eb8851?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmVzdGF1cmFudCUyMGJhcnxlbnwwfHx8fDE3NjE5MzU2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant bar"
+    },
+    {
+      "id": "testimonial-avatar-1",
+      "description": "Portrait of a happy customer.",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-avatar-2",
+      "description": "Portrait of another satisfied guest.",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzYxOTgwMjIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "about-interior-1",
+      "description": "Wide shot of the restaurant's beautiful interior design.",
+      "imageUrl": "https://images.unsplash.com/photo-1628744876497-eb30460be9f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsdXh1cnklMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjIwMjY1MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury interior"
+    },
+    {
+      "id": "about-chef-1",
+      "description": "Portrait of the head chef in the kitchen.",
+      "imageUrl": "https://images.unsplash.com/photo-1643834776503-891726ed42c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVmJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYyMDI2NTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chef portrait"
+    },
+    {
+      "id": "menu-appetizer-1",
+      "description": "A delicious appetizer.",
+      "imageUrl": "https://images.unsplash.com/photo-1761095596684-0764856a05e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBldGl6ZXIlMjBmb29kfGVufDB8fHx8MTc2MjAyNjUyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "appetizer food"
+    },
+    {
+      "id": "menu-main-1",
+      "description": "A hearty main course.",
+      "imageUrl": "https://images.unsplash.com/photo-1633337474564-1d9478ca4e2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYWluJTIwY291cnNlfGVufDB8fHx8MTc2MjAyNjUyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "main course"
+    },
+    {
+      "id": "menu-dessert-1",
+      "description": "A sweet dessert.",
+      "imageUrl": "https://images.unsplash.com/photo-1705933774160-24298027a349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkZXNzZXJ0JTIwY2FrZXxlbnwwfHx8fDE3NjIwMjY1MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dessert cake"
+    },
+    {
+      "id": "menu-special-1",
+      "description": "A chef's special dish.",
+      "imageUrl": "https://images.unsplash.com/photo-1761718962825-22d62c838ea3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzcGVjaWFsJTIwZGlzaHxlbnwwfHx8fDE3NjIwMjY1MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "special dish"
+    },
+    {
+      "id": "contact-map",
+      "description": "A map showing the location of the restaurant.",
+      "imageUrl": "https://images.unsplash.com/photo-1717343823307-973d0903d222?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MTkxMTUzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city map"
+    }
+  ]
 }
