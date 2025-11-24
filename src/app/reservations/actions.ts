@@ -41,10 +41,12 @@ export async function makeReservation(data: z.infer<typeof reservationSchema>) {
   formData.append(GOOGLE_FORM_GUESTS_ID, parsedData.data.guests);
 
   try {
-    const res = await fetch(GOOGLE_FORM_ACTION_URL, {
+    // We remove `mode: 'no-cors'` to ensure the request is sent correctly,
+    // even if it logs a CORS error in the browser console on the client.
+    // This is expected behavior when posting to a Google Form from a different origin.
+    await fetch(GOOGLE_FORM_ACTION_URL, {
       method: 'POST',
       body: formData,
-      mode: 'no-cors',
     });
     
     return { success: true };
