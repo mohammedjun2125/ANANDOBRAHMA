@@ -1,7 +1,6 @@
 'use server';
 
 import { z } from 'zod';
-import axios from 'axios';
 
 const reservationSchema = z.object({
   name: z.string(),
@@ -19,8 +18,6 @@ export async function makeReservation(data: z.infer<typeof reservationSchema>) {
     return { success: false, message: 'Invalid data provided.' };
   }
 
-  // --- Step 2: Replace these with your actual Google Form URL and Entry IDs ---
-  // How to get these: https://youtu.be/FYAEi_2yI0I?t=130
   const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdVjKj_piOb7ROItsOSX0a2wKxAkLH7rtFLWS6BZK8RFUgg1w/formResponse';
   const GOOGLE_FORM_NAME_ID = 'entry.306566510';
   const GOOGLE_FORM_EMAIL_ID = 'entry.899160195';
@@ -28,23 +25,12 @@ export async function makeReservation(data: z.infer<typeof reservationSchema>) {
   const GOOGLE_FORM_DATE_ID = 'entry.388632873';
   const GOOGLE_FORM_TIME_ID = 'entry.1037924307';
   const GOOGLE_FORM_GUESTS_ID = 'entry.1727463639';
-  // -------------------------------------------------------------------------
-
-  if (GOOGLE_FORM_ACTION_URL === 'YOUR_GOOGLE_FORM_ACTION_URL') {
-    console.error("Google Form URL has not been set up in /src/app/reservations/actions.ts");
-    // In a real app, you might want to still save this somewhere or notify an admin.
-    // For now, we'll return a success to the user but log the issue.
-    console.log('Reservation data received (but not sent to Google Sheets):', parsedData.data);
-    return { success: true };
-  }
-
 
   const formData = new FormData();
   formData.append(GOOGLE_FORM_NAME_ID, parsedData.data.name);
   formData.append(GOOGLE_FORM_EMAIL_ID, parsedData.data.email);
   formData.append(GOOGLE_FORM_PHONE_ID, parsedData.data.phone);
   
-  // Format date to YYYY-MM-DD for Google Forms
   const date = parsedData.data.date;
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -55,7 +41,12 @@ export async function makeReservation(data: z.infer<typeof reservationSchema>) {
   formData.append(GOOGLE_FORM_GUESTS_ID, parsedData.data.guests);
 
   try {
-    await axios.post(GOOGLE_FORM_ACTION_URL, formData);
+    const res = await fetch(GOOGLE_FORM_ACTION_URL, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors',
+    });
+    
     return { success: true };
   } catch (error) {
     console.error('Error submitting to Google Form:', error);
