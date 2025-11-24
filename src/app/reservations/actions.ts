@@ -21,13 +21,13 @@ export async function makeReservation(data: z.infer<typeof reservationSchema>) {
 
   // --- Step 2: Replace these with your actual Google Form URL and Entry IDs ---
   // How to get these: https://youtu.be/FYAEi_2yI0I?t=130
-  const GOOGLE_FORM_ACTION_URL = 'YOUR_GOOGLE_FORM_ACTION_URL';
-  const GOOGLE_FORM_NAME_ID = 'entry.YOUR_NAME_ID';
-  const GOOGLE_FORM_EMAIL_ID = 'entry.YOUR_EMAIL_ID';
-  const GOOGLE_FORM_PHONE_ID = 'entry.YOUR_PHONE_ID';
-  const GOOGLE_FORM_DATE_ID = 'entry.YOUR_DATE_ID';
-  const GOOGLE_FORM_TIME_ID = 'entry.YOUR_TIME_ID';
-  const GOOGLE_FORM_GUESTS_ID = 'entry.YOUR_GUESTS_ID';
+  const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdVjKj_piOb7ROItsOSX0a2wKxAkLH7rtFLWS6BZK8RFUgg1w/formResponse';
+  const GOOGLE_FORM_NAME_ID = 'entry.306566510';
+  const GOOGLE_FORM_EMAIL_ID = 'entry.899160195';
+  const GOOGLE_FORM_PHONE_ID = 'entry.1811699067';
+  const GOOGLE_FORM_DATE_ID = 'entry.388632873';
+  const GOOGLE_FORM_TIME_ID = 'entry.1037924307';
+  const GOOGLE_FORM_GUESTS_ID = 'entry.1727463639';
   // -------------------------------------------------------------------------
 
   if (GOOGLE_FORM_ACTION_URL === 'YOUR_GOOGLE_FORM_ACTION_URL') {
