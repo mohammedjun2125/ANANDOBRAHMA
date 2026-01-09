@@ -61,14 +61,14 @@ export default function ReservationPage() {
     
     const whatsappNumber = "7995849217";
     const message = `
-*New Reservation Request*
+New Reservation Request
 
-*Name:* ${values.name}
-*Phone:* ${values.phone}
-*Email:* ${values.email}
-*Date:* ${format(values.date, 'PPP')}
-*Time:* ${values.time}
-*Guests:* ${values.guests}
+Name: ${values.name}
+Phone: ${values.phone}
+Email: ${values.email}
+Date: ${format(values.date, 'PPP')}
+Time: ${values.time}
+Guests: ${values.guests}
     `;
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message.trim())}`;
