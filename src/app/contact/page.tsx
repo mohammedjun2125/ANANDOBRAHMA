@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Mail, MessageSquare, Phone, User, Clock, MapPin } from 'lucide-react';
-import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -20,7 +19,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm } from './actions';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useState } from 'react';
 
 const contactSchema = z.object({
@@ -32,8 +30,7 @@ const contactSchema = z.object({
 export default function ContactPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const mapImage = PlaceHolderImages.find((img) => img.id === 'contact-map');
-
+  
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -101,8 +98,17 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
-            {mapImage && <Image src={mapImage.imageUrl} alt="Map" width={800} height={500} className="w-full" data-ai-hint={mapImage.imageHint} />}
+          <div className="mt-8 rounded-lg overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15229.24555896328!2d78.3567702871582!3d17.433096000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e36e138a41%3A0x207755f52861c296!2sAnandobrahma!5e1!3m2!1sen!2sus!4v1724263795537!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+            ></iframe>
           </div>
         </div>
 
