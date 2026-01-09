@@ -32,7 +32,6 @@ import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
-import { makeReservation } from './actions';
 import { useState } from 'react';
 
 const reservationSchema = z.object({
@@ -59,20 +58,29 @@ export default function ReservationPage() {
 
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
-    const result = await makeReservation(values);
-    if (result.success) {
-        toast({
-            title: "Reservation Confirmed!",
-            description: `Thank you, ${values.name}. Your table for ${values.guests} on ${format(values.date, 'PPP')} at ${values.time} is booked. A confirmation email has been sent.`,
-        });
-        form.reset();
-    } else {
-        toast({
-            title: "Reservation Failed",
-            description: result.message || "There was an error processing your reservation. Please try again.",
-            variant: "destructive",
-        });
-    }
+    
+    const whatsappNumber = "7995849217";
+    const message = `
+*New Reservation Request*
+
+*Name:* ${values.name}
+*Phone:* ${values.phone}
+*Email:* ${values.email}
+*Date:* ${format(values.date, 'PPP')}
+*Time:* ${values.time}
+*Guests:* ${values.guests}
+    `;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message.trim())}`;
+    
+    window.open(whatsappUrl, '_blank');
+
+    toast({
+        title: "Redirecting to WhatsApp",
+        description: "Please send the pre-filled message in WhatsApp to confirm your booking.",
+    });
+
+    form.reset();
     setIsSubmitting(false);
   }
 
@@ -232,7 +240,7 @@ export default function ReservationPage() {
               />
 
               <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-                {isSubmitting ? "Booking..." : "Confirm Reservation"}
+                {isSubmitting ? "Redirecting..." : "Confirm Reservation"}
               </Button>
             </form>
           </Form>
