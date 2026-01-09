@@ -59,7 +59,7 @@ export default function ReservationPage() {
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
     
-    const whatsappNumber = "7995849217";
+    const whatsappNumber = "8790200321";
     const message = `
 New Reservation Request
 
