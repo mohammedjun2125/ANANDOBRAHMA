@@ -1,5 +1,5 @@
 
-export const WHATSAPP_RESERVATION_NUMBER = '8790200321';
+export const WHATSAPP_RESERVATION_NUMBER = '+91 8790200321';
 
 export const signatureDishes = [
   {
