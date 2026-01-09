@@ -90,7 +90,10 @@ Guests: ${values.guests}
     setIsSubmitting(false);
   }
 
-  const timeSlots = Array.from({ length: 11 }, (_, i) => `${(i + 5)}:00 PM`);
+  const timeSlots = Array.from({ length: 11 }, (_, i) => {
+      const hour = i + 17; // Start from 5 PM (17:00)
+      return `${hour}:00`;
+  });
 
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24 animate-fade-in-up">

@@ -1,6 +1,6 @@
 'use server';
 
-// This file is no longer used for reservations but is kept
+// This file is not currently used for reservations but is kept
 // in case you want to re-implement server-side submissions in the future.
 
 import { z } from 'zod';
