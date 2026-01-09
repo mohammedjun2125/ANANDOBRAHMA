@@ -23,6 +23,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
 } from '@/components/ui/select';
 import {
   Popover,
@@ -88,13 +90,13 @@ Guests: ${values.guests}
     }, 1000);
   }
 
-  const timeSlots = Array.from({ length: 8 }, (_, i) => {
-    const hour24 = i + 17; // Start from 5 PM (17:00)
-    const hour12 = hour24 % 12 === 0 ? 12 : hour24 % 12;
-    const period = hour24 < 12 || hour24 === 24 ? 'AM' : 'PM';
-    return `${hour12}:00 ${period}`;
-  });
-  timeSlots.push('12:00 AM'); // Add midnight explicitly
+  const lunchTimeSlots = [
+    "11:30 AM", "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM"
+  ];
+  
+  const dinnerTimeSlots = [
+    "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM", "10:30 PM", "11:00 PM", "11:30 PM", "12:00 AM"
+  ];
 
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24 animate-fade-in-up">
@@ -214,7 +216,14 @@ Guests: ${values.guests}
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {timeSlots.map(slot => <SelectItem key={slot} value={slot}>{slot}</SelectItem>)}
+                          <SelectGroup>
+                            <SelectLabel>Lunch</SelectLabel>
+                            {lunchTimeSlots.map(slot => <SelectItem key={slot} value={slot}>{slot}</SelectItem>)}
+                          </SelectGroup>
+                          <SelectGroup>
+                            <SelectLabel>Dinner</SelectLabel>
+                            {dinnerTimeSlots.map(slot => <SelectItem key={slot} value={slot}>{slot}</SelectItem>)}
+                          </SelectGroup>
                         </SelectContent>
                       </Select>
                       <FormMessage />
