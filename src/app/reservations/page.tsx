@@ -61,7 +61,6 @@ export default function ReservationPage() {
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
     
-    // Remove non-digit characters from the phone number to ensure URL compatibility
     const cleanPhoneNumber = WHATSAPP_RESERVATION_NUMBER.replace(/\D/g, '');
     const message = `
 New Reservation Request
@@ -72,12 +71,10 @@ Email: ${values.email}
 Date: ${format(values.date, 'PPP')}
 Time: ${values.time}
 Guests: ${values.guests}
-    `;
+    `.trim();
 
-    // Use the more reliable api.whatsapp.com URL
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodeURIComponent(message.trim())}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodeURIComponent(message)}`;
     
-    // Use window.location.href for a more reliable redirect
     window.location.href = whatsappUrl;
 
     toast({
@@ -85,18 +82,19 @@ Guests: ${values.guests}
         description: "Please send the pre-filled message in WhatsApp to confirm your booking.",
     });
 
-    // It's unlikely the user will return, but this resets the form in case of navigation failure.
-    // Setting a timeout can help ensure the navigation starts before state changes.
     setTimeout(() => {
         form.reset();
         setIsSubmitting(false);
     }, 1000);
   }
 
-  const timeSlots = Array.from({ length: 11 }, (_, i) => {
-      const hour = i + 17; // Start from 5 PM (17:00)
-      return `${hour}:00`;
+  const timeSlots = Array.from({ length: 8 }, (_, i) => {
+    const hour24 = i + 17; // Start from 5 PM (17:00)
+    const hour12 = hour24 % 12 === 0 ? 12 : hour24 % 12;
+    const period = hour24 < 12 || hour24 === 24 ? 'AM' : 'PM';
+    return `${hour12}:00 ${period}`;
   });
+  timeSlots.push('12:00 AM'); // Add midnight explicitly
 
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24 animate-fade-in-up">
