@@ -61,7 +61,8 @@ export default function ReservationPage() {
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
     
-    const whatsappNumber = WHATSAPP_RESERVATION_NUMBER;
+    // Remove non-digit characters from the phone number
+    const cleanPhoneNumber = WHATSAPP_RESERVATION_NUMBER.replace(/\D/g, '');
     const message = `
 New Reservation Request
 
@@ -73,7 +74,8 @@ Time: ${values.time}
 Guests: ${values.guests}
     `;
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message.trim())}`;
+    // Use the more reliable api.whatsapp.com URL
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodeURIComponent(message.trim())}`;
     
     window.location.href = whatsappUrl;
 
@@ -82,6 +84,8 @@ Guests: ${values.guests}
         description: "Please send the pre-filled message in WhatsApp to confirm your booking.",
     });
 
+    // Resetting form might not be ideal as user is redirected.
+    // Keeping it here in case the redirect fails for any reason.
     form.reset();
     setIsSubmitting(false);
   }
