@@ -61,7 +61,7 @@ export default function ReservationPage() {
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
     
-    // Remove non-digit characters from the phone number
+    // Remove non-digit characters from the phone number to ensure URL compatibility
     const cleanPhoneNumber = WHATSAPP_RESERVATION_NUMBER.replace(/\D/g, '');
     const message = `
 New Reservation Request
@@ -77,6 +77,7 @@ Guests: ${values.guests}
     // Use the more reliable api.whatsapp.com URL
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${encodeURIComponent(message.trim())}`;
     
+    // Use window.location.href for a more reliable redirect
     window.location.href = whatsappUrl;
 
     toast({
@@ -84,10 +85,12 @@ Guests: ${values.guests}
         description: "Please send the pre-filled message in WhatsApp to confirm your booking.",
     });
 
-    // Resetting form might not be ideal as user is redirected.
-    // Keeping it here in case the redirect fails for any reason.
-    form.reset();
-    setIsSubmitting(false);
+    // It's unlikely the user will return, but this resets the form in case of navigation failure.
+    // Setting a timeout can help ensure the navigation starts before state changes.
+    setTimeout(() => {
+        form.reset();
+        setIsSubmitting(false);
+    }, 1000);
   }
 
   const timeSlots = Array.from({ length: 11 }, (_, i) => {
