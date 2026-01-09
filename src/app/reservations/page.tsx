@@ -73,7 +73,7 @@ Guests: ${values.guests}
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message.trim())}`;
     
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
 
     toast({
         title: "Redirecting to WhatsApp",
