@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -7,12 +8,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { signatureDishes, testimonials } from '@/lib/constants';
+import { testimonials } from '@/lib/constants';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChefHat, Gem, GlassWater } from 'lucide-react';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-1');
@@ -49,39 +50,40 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Signature Dishes */}
+        {/* Our Philosophy Section */}
         <section className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase tracking-wider">
-              Signature Constructs
+              Our Philosophy
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {signatureDishes.map((dish) => {
-                const dishImage = PlaceHolderImages.find(
-                  (img) => img.id === dish.imageId
-                );
-                return (
-                  <Card key={dish.name} className="overflow-hidden border-2 border-border hover:border-primary transition-all duration-300 transform hover:-translate-y-2 group bg-card hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
-                    <CardHeader className="p-0">
-                      {dishImage && (
-                        <div className="aspect-video relative overflow-hidden">
-                          <Image
-                            src={dishImage.imageUrl}
-                            alt={dish.name}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            data-ai-hint={dishImage.imageHint}
-                          />
-                        </div>
-                      )}
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <CardTitle className="text-xl md:text-2xl font-headline mb-2 uppercase">{dish.name}</CardTitle>
-                      <p className="text-muted-foreground">{dish.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center [perspective:1000px]">
+              <div className="bg-card p-8 rounded-lg border-2 border-border/50 shadow-lg transform transition-transform duration-500 hover:[transform:rotateY(-15deg)] hover:shadow-2xl hover:shadow-primary/20">
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary">
+                    <ChefHat className="w-10 h-10" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold font-headline mb-3">Exquisite Cuisine</h3>
+                <p className="text-muted-foreground">We transform the finest ingredients into culinary art, crafting dishes that are both innovative and timeless.</p>
+              </div>
+              <div className="bg-card p-8 rounded-lg border-2 border-border/50 shadow-lg transform transition-transform duration-500 hover:[transform:rotateY(0deg)_scale(1.05)] hover:shadow-2xl hover:shadow-primary/20 z-10">
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary">
+                    <Gem className="w-10 h-10" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold font-headline mb-3">Elegant Ambiance</h3>
+                <p className="text-muted-foreground">Our restaurant is a sanctuary of sophisticated design, providing the perfect backdrop for any occasion.</p>
+              </div>
+              <div className="bg-card p-8 rounded-lg border-2 border-border/50 shadow-lg transform transition-transform duration-500 hover:[transform:rotateY(15deg)] hover:shadow-2xl hover:shadow-primary/20">
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary">
+                    <GlassWater className="w-10 h-10" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold font-headline mb-3">Impeccable Service</h3>
+                <p className="text-muted-foreground">Our dedicated team provides attentive, discreet service to ensure your experience is flawless.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -99,9 +101,9 @@ export default function Home() {
                             <Link href="/about">Discover Our Story <ArrowRight className="ml-2" /></Link>
                         </Button>
                     </div>
-                    <div className="order-1 md:order-2">
+                    <div className="order-1 md:order-2 group [perspective:1000px]">
                         {aboutImage && (
-                            <div className="rounded-lg overflow-hidden shadow-2xl border-2 border-transparent hover:border-primary transition-all duration-500">
+                            <div className="rounded-lg overflow-hidden shadow-2xl transition-transform duration-500 transform group-hover:[transform:rotateY(15deg)_scale(1.05)] border-2 border-transparent hover:border-primary">
                                 <Image
                                     src={aboutImage.imageUrl}
                                     alt={aboutImage.description}
@@ -116,7 +118,6 @@ export default function Home() {
                 </div>
             </div>
         </section>
-
 
         {/* Ambience Section */}
         <section className="py-16 lg:py-24 bg-background">
@@ -141,7 +142,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
 
         {/* Testimonials */}
         <section className="py-16 lg:py-24 bg-secondary/30">
@@ -196,7 +196,23 @@ export default function Home() {
             </Carousel>
           </div>
         </section>
+        
+        {/* CTA Section */}
+        <section className="py-16 lg:py-24 bg-background">
+          <div className="container mx-auto px-4 text-center">
+             <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Begin Your Culinary Journey
+            </h2>
+            <p className="max-w-2xl mx-auto text-muted-foreground mb-8">
+              Experience the art of fine dining. Book your table now for an unforgettable evening at ANANDOBRAHMA.
+            </p>
+            <Button asChild size="lg" className="font-bold shadow-[0_0_20px] shadow-primary/50 hover:shadow-primary/80 transition-all duration-300">
+              <Link href="/reservations">Make a Reservation</Link>
+            </Button>
+          </div>
+        </section>
       </main>
     </div>
   );
-}
+
+    
