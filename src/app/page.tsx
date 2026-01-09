@@ -35,15 +35,15 @@ export default function Home() {
               priority
             />
           )}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/70" />
           <div className="relative z-10 animate-fade-in-up space-y-4 p-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight uppercase text-white drop-shadow-[0_0_15px_hsl(var(--primary))]">
               ANANDOBRAHMA
             </h1>
-            <p className="text-md sm:text-lg md:text-xl text-primary max-w-2xl mx-auto">
-              Where Culinary Art Meets Timeless Elegance
+            <p className="text-md sm:text-lg md:text-xl text-primary max-w-2xl mx-auto font-bold tracking-widest">
+              THE FUTURE OF FINE DINING
             </p>
-            <Button asChild size="lg" className="mt-6 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
+            <Button asChild size="lg" className="mt-6 font-bold shadow-[0_0_20px] shadow-primary/50 hover:shadow-primary/80 transition-all duration-300">
               <Link href="/reservations">Reserve a Table</Link>
             </Button>
           </div>
@@ -52,8 +52,8 @@ export default function Home() {
         {/* Signature Dishes */}
         <section className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Our Signature Dishes
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase tracking-wider">
+              Signature Constructs
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {signatureDishes.map((dish) => {
@@ -61,7 +61,7 @@ export default function Home() {
                   (img) => img.id === dish.imageId
                 );
                 return (
-                  <Card key={dish.name} className="overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 group bg-secondary/20">
+                  <Card key={dish.name} className="overflow-hidden border-2 border-border hover:border-primary transition-all duration-300 transform hover:-translate-y-2 group bg-card hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
                     <CardHeader className="p-0">
                       {dishImage && (
                         <div className="aspect-video relative overflow-hidden">
@@ -76,7 +76,7 @@ export default function Home() {
                       )}
                     </CardHeader>
                     <CardContent className="p-6">
-                      <CardTitle className="text-xl md:text-2xl font-headline mb-2">{dish.name}</CardTitle>
+                      <CardTitle className="text-xl md:text-2xl font-headline mb-2 uppercase">{dish.name}</CardTitle>
                       <p className="text-muted-foreground">{dish.description}</p>
                     </CardContent>
                   </Card>
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="order-2 md:order-1 text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">The Soul of Anandobrahma</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wider">The Genesis of Anandobrahma</h2>
                         <p className="text-muted-foreground mb-6 leading-relaxed">
                             Anandobrahma is more than a restaurant; it's a celebration of heritage, flavor, and the joy of dining. Our philosophy is rooted in the ancient Indian concept of "food as the divine," where every meal is an offering of love and a path to contentment. We blend traditional recipes with contemporary techniques to create an unforgettable fine-dining experience.
                         </p>
@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                     <div className="order-1 md:order-2">
                         {aboutImage && (
-                            <div className="rounded-lg overflow-hidden shadow-2xl">
+                            <div className="rounded-lg overflow-hidden shadow-2xl border-2 border-transparent hover:border-primary transition-all duration-500">
                                 <Image
                                     src={aboutImage.imageUrl}
                                     alt={aboutImage.description}
@@ -121,20 +121,20 @@ export default function Home() {
         {/* Ambience Section */}
         <section className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              An Atmosphere of Elegance
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wider">
+              Engineered Atmosphere
             </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
               Our interiors are meticulously designed to transport you to a world of sophisticated comfort, where every detail enhances your dining pleasure.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {ambienceImage1 && (
-                 <div className="rounded-lg overflow-hidden shadow-lg aspect-video relative">
+                 <div className="rounded-lg overflow-hidden shadow-lg aspect-video relative border-2 border-transparent hover:border-primary transition-all duration-500">
                     <Image src={ambienceImage1.imageUrl} alt={ambienceImage1.description} fill className="object-cover" data-ai-hint={ambienceImage1.imageHint}/>
                 </div>
               )}
               {ambienceImage2 && (
-                 <div className="rounded-lg overflow-hidden shadow-lg aspect-video relative">
+                 <div className="rounded-lg overflow-hidden shadow-lg aspect-video relative border-2 border-transparent hover:border-primary transition-all duration-500">
                     <Image src={ambienceImage2.imageUrl} alt={ambienceImage2.description} fill className="object-cover" data-ai-hint={ambienceImage2.imageHint} />
                 </div>
               )}
@@ -146,8 +146,8 @@ export default function Home() {
         {/* Testimonials */}
         <section className="py-16 lg:py-24 bg-secondary/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Words From Our Guests
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase tracking-wider">
+              Transmissions from our Guests
             </h2>
             <Carousel
               opts={{
@@ -164,14 +164,14 @@ export default function Home() {
                   return (
                     <CarouselItem key={index} className="md:basis-1/2">
                       <div className="p-1">
-                        <Card className="bg-background/50 border-border/50">
+                        <Card className="bg-card border-border/50 h-full">
                           <CardContent className="flex flex-col items-center justify-center p-6 md:p-8 text-center min-h-[280px]">
-                            <p className="text-base md:text-lg italic mb-6">
+                            <p className="text-base md:text-lg italic mb-6 text-muted-foreground">
                               "{testimonial.quote}"
                             </p>
                             <div className="flex items-center">
                               {avatarImage && (
-                                <Avatar className="h-12 w-12 mr-4">
+                                <Avatar className="h-12 w-12 mr-4 border-2 border-primary/50">
                                   <AvatarImage
                                     src={avatarImage.imageUrl}
                                     alt={testimonial.name}
@@ -181,7 +181,7 @@ export default function Home() {
                                 </Avatar>
                               )}
                               <div>
-                                <p className="font-bold text-base">{testimonial.name}</p>
+                                <p className="font-bold text-base uppercase tracking-widest">{testimonial.name}</p>
                               </div>
                             </div>
                           </CardContent>
