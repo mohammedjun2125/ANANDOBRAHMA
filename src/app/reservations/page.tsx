@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -33,6 +34,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { WHATSAPP_RESERVATION_NUMBER } from '@/lib/constants';
 
 const reservationSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -59,7 +61,7 @@ export default function ReservationPage() {
   async function onSubmit(values: z.infer<typeof reservationSchema>) {
     setIsSubmitting(true);
     
-    const whatsappNumber = "8790200321";
+    const whatsappNumber = WHATSAPP_RESERVATION_NUMBER;
     const message = `
 New Reservation Request
 

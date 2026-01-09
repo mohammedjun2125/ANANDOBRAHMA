@@ -1,3 +1,6 @@
+
+export const WHATSAPP_RESERVATION_NUMBER = '8790200321';
+
 export const signatureDishes = [
   {
     name: 'Saffron Risotto',
